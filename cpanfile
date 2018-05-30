@@ -1,11 +1,11 @@
 requires "Dancer2" => "0.162000";
 requires 'Dancer2::Plugin::Database';
-requires 'DBD::ODBC';
+#requires 'DBD::ODBC';
 requires "Template";
 requires "FCGI::ProcManager";
 requires "Dancer2::Plugin::Auth::Extensible";
 #requires "Authen::PAM";
-requires "Authen::Simple::PAM";
+#requires "Authen::Simple::PAM";
 requires "Unix::Passwd::File";
 requires "Dancer2::Session::Cookie";
 requires "FCGI";
