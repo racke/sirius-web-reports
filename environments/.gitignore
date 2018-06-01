@@ -1,0 +1,3 @@
+# Keep directory for environment configuration files, but not the files itself
+*
+!.gitignore
