@@ -1,6 +1,7 @@
 requires "Dancer2" => "0.162000";
 requires 'Dancer2::Plugin::Database';
 #requires 'DBD::ODBC';
+requires "DBD::Sybase";
 requires "Template";
 requires "FCGI::ProcManager";
 requires "Dancer2::Plugin::Auth::Extensible";
