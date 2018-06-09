@@ -1,0 +1,55 @@
+# configuration file for production environment
+
+# only log error messsages
+# core, debug, info, warning, error
+log: "info"
+
+# log message to a file in logs/
+logger: "console"
+
+# we are behind a proxy
+behind_proxy: "true"
+
+# don't consider warnings critical
+warnings: 0
+
+# hide errors
+show_errors: 0
+
+# disable server tokens in production environments
+no_server_tokens: 1
+
+plugins:
+  DBIC:
+    default:
+      dsn: "dbi:Sybase:server=reports;database=[% env.SIRIUS_DATABASE_NAME %]"
+      server: [% env.SIRIUS_DATABASE_SERVER %]
+      database: [% env.SIRIUS_DATABASE_NAME %]
+      user: '[% env.SIRIUS_DATABASE_USER %]'
+      password: '[% env.SIRIUS_DATABASE_PASSWORD %]'
+      schema_class: Reports::Schema
+      LongReadLen: 500000
+      LongTruncOk: 1
+      options:
+        on_connect_do: 'Set transaction isolation level read uncommitted;'
+        LongReadLen: 500000
+        LongTruncOk: 1
+  Ajax:
+    content_type: 'application/json'
+  Database:
+    driver: Sybase
+    server: [% env.SIRIUS_DATABASE_SERVER %]
+    database: [% env.SIRIUS_DATABASE_NAME %]
+    username: '[% env.SIRIUS_DATABASE_USER %]'
+    password: '[% env.SIRIUS_DATABASE_PASSWORD %]'
+    LongReadLen: 500000
+    LongTruncOk: 1
+    dbi_params:
+      PrintError: 1
+    on_connect_do: ['Set transaction isolation level read uncommitted;']
+  engines:
+  session:
+    Cookie:
+      secret_key: [% env.SIRIUS_COOKIE_SECRET_KEY %]
+      default_duration: 604800
+
