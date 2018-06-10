@@ -1,0 +1,6 @@
+
+# Settings for sirius database
+[reports]
+    host = localhost
+    port = 1433
+    tds version = 8.0
