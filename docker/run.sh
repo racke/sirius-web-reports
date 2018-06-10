@@ -8,4 +8,4 @@ if [ -n "$CONTAINER_ID" ]; then
 fi
 
 # Run script
-docker run --name sirius-web-reports --env-file sirius-web-reports.env -d -it sirius-web-reports:latest $@
+docker run --name sirius-web-reports --env-file sirius-web-reports.env -d --network=host -it sirius-web-reports:latest $@
